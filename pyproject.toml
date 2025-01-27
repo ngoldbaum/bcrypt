@@ -54,7 +54,6 @@ target = "bcrypt._bcrypt"
 path = "src/_bcrypt/Cargo.toml"
 py-limited-api = "auto"
 rust-version = ">=1.64.0"
-debug = true
 
 [tool.ruff]
 line-length = 79
