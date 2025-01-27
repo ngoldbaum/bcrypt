@@ -44,6 +44,9 @@ jobs:
         env:
           NOXSESSION: ${{ matrix.PYTHON.NOXSESSION }}
           CARGO_TARGET_DIR: ${{ format('{0}/src/_bcrypt/target/', github.workspace) }}
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ failure() }}
 
   windows:
     runs-on: windows-latest
