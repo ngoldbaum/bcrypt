@@ -1,13 +1,13 @@
 import nox
 
 nox.options.reuse_existing_virtualenvs = True
-nox.options.default_venv_backend = "uv|virtualenv"
+nox.options.default_venv_backend = "virtualenv"
 
 
 @nox.session
 def tests(session: nox.Session) -> None:
     session.install("coverage")
-    session.install(".[tests]")
+    session.install(".[tests]", "-vvv")
 
     session.run(
         "coverage", "run", "-m", "pytest", "--strict-markers", *session.posargs
