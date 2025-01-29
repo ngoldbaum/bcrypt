@@ -44,6 +44,7 @@ jobs:
         env:
           NOXSESSION: ${{ matrix.PYTHON.NOXSESSION }}
           CARGO_TARGET_DIR: ${{ format('{0}/src/_bcrypt/target/', github.workspace) }}
+          PYO3_PYTHON: ${{ steps.setup-python.outputs.python-path }}
 
   windows:
     runs-on: windows-latest
@@ -82,6 +83,8 @@ jobs:
         env:
           NOXSESSION: ${{ matrix.PYTHON.NOXSESSION }}
           CARGO_TARGET_DIR: ${{ format('{0}/src/_bcrypt/target/', github.workspace) }}
+          PYO3_PYTHON: ${{ steps.setup-python.outputs.python-path }}
+
   linux:
     runs-on: ubuntu-22.04
     strategy:
@@ -131,6 +134,7 @@ jobs:
         env:
           NOXSESSION: ${{ matrix.PYTHON.NOXSESSION }}
           CARGO_TARGET_DIR: ${{ format('{0}/src/_bcrypt/target/', github.workspace) }}
+          PYO3_PYTHON: ${{ steps.setup-python.outputs.python-path }}
 
   linux-distros:
     runs-on: ${{ matrix.IMAGE.RUNNER }}
